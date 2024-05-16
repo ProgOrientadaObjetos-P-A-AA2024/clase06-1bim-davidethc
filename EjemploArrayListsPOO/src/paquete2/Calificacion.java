@@ -50,5 +50,13 @@ public class Calificacion {
     public Profesor obtenerProfesor() {
         return profesor;
     }
+     
+    @Override
+    public String toString (){
+        String cadena = String.format("%s - %s - %.2f\n", 
+                   profesor.obtenerNombre(),nombreMateria,nota);
+        return cadena;
+    }
 
 }
+
