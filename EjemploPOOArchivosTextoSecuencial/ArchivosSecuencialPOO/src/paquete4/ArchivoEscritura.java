@@ -1,41 +1,35 @@
 
-package paquete3;
+package paquete4;
 
-// Uso de la clase Formatter para escribir datos en un archivo de texto.
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Formatter;
-import paquete1.Calificacion;
 import paquete1.Profesor;
 
 public class ArchivoEscritura {
-
+    
     private String nombreArchivo;
     private String rutaArchivo;
-    private Calificacion registro;
+    private Empresa registro;
     private Formatter salidaArchivo;
 
     public ArchivoEscritura(String n) {
         nombreArchivo = n;
-        rutaArchivo = String.format("data/%s",
-                nombreArchivo);
+        rutaArchivo = String.format("data/%s", nombreArchivo); // "data/profesores2.txt"
         
     }
 
-    
     public void establecerNombreArchivo(String n) {
         nombreArchivo = n;
     }
 
     public void establecerRutaArchivo() {
         rutaArchivo = String.format("data/%s.txt",
-                obtenerNombreArchivo());;
+                obtenerNombreArchivo());
     }
 
-    public void establecerRegistro(Calificacion n) {
-        registro = n;
+    public void establecerRegistro(Empresa n ) {
+        registro= n;
     }
 
     public String obtenerNombreArchivo() {
@@ -46,7 +40,7 @@ public class ArchivoEscritura {
         return rutaArchivo;
     }
 
-    public Calificacion obtenerRegistro() {
+    public Empresa obtenerRegistro() {
         return registro;
     }
 
@@ -54,16 +48,14 @@ public class ArchivoEscritura {
     public void establecerSalida() {
         try {
             salidaArchivo = new Formatter(new FileWriter(rutaArchivo, true));
-            Calificacion p = obtenerRegistro();
-            String cadenaRegistro = String.format("%s;%.2f;%s|%s",
-                    p.obtenerNombreMateria(),
-                    p.obtenerNota(),
-                    p.obtenerProfesor().obtenerNombre(),
-                    p.obtenerProfesor().obtenerTipo()
-                    );
+            Empresa p = obtenerRegistro();
+            
+            String cadenaRegistro = String.format("%s;%s",
+                    p.obtenerNombre(), p.obtenerCiudad());
+            
             salidaArchivo.format("%s\n", cadenaRegistro);
             salidaArchivo.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println("Error al crear el archivo.");
             System.err.println(e);
 
@@ -79,3 +71,15 @@ public class ArchivoEscritura {
     }
 
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
