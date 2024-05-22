@@ -42,5 +42,7 @@ public class Ejecutor {
         // System.out.println(lectura.toString());
         System.out.println(lectura);
         lectura.cerrarArchivo();
+        
+        //Estamis mandando a llamr a escribir archivos y llamar lectura
     }
 }

@@ -25,6 +25,7 @@ public class ManejoArrayList4 {
                 
                 ) // ["Tara Hernandez", "contratado"]
         );
+        
         Profesor p = new Profesor(linea_partes.get(0), // Tara Hernandez
                 linea_partes.get(1)); // contratado;
 
